@@ -20,3 +20,10 @@ This project creates a fake IoT device honeypot that monitors suspicious login a
 - Linux
 - Git
 - Docker
+
+## Future Enhancements
+
+- IoT device simulation using Tinkercad
+- Attack visualization dashboard
+- Threat analysis reports
+- Docker deployment
