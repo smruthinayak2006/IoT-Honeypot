@@ -1,15 +1,17 @@
 """
 IoT Honeypot
 
-Day 4:
-Fake Telnet login capture
+Day 5:
+Saving attack logs
 """
 
 import socket
+from datetime import datetime
 
 
 HOST = "0.0.0.0"
 PORT = 2323
+
 
 def receive_input(client):
 
@@ -27,29 +29,80 @@ def receive_input(client):
     return data.strip()
 
 
+
+def save_log(ip, username, password):
+
+    time = datetime.now()
+
+
+    with open(
+        "logs/attack_logs.txt",
+        "a"
+    ) as file:
+
+
+        file.write(
+            "====================\n"
+        )
+
+
+        file.write(
+            f"Time: {time}\n"
+        )
+
+
+        file.write(
+            f"IP Address: {ip}\n"
+        )
+
+
+        file.write(
+            f"Username: {username}\n"
+        )
+
+
+        file.write(
+            f"Password: {password}\n"
+        )
+
+
+        file.write(
+            "====================\n\n"
+        )
+
+
+
 server = socket.socket(
     socket.AF_INET,
     socket.SOCK_STREAM
 )
 
 
-server.bind((HOST, PORT))
+server.bind(
+    (HOST, PORT)
+)
 
 
 server.listen(5)
 
 
-print("[+] Fake IoT Camera Started")
-print(f"[+] Listening on port {PORT}")
+print("[+] IoT Honeypot Running")
+print(f"[+] Listening on {PORT}")
+
 
 
 while True:
 
+
     client, address = server.accept()
+
 
     attacker_ip = address[0]
 
-    print(f"[!] Connection from {attacker_ip}")
+
+    print(
+        f"[!] Connection from {attacker_ip}"
+    )
 
 
     client.send(
@@ -62,21 +115,31 @@ while True:
     )
 
 
-    username = receive_input(client)
+    username = receive_input(
+        client
+    )
+
 
     client.send(
         b"Password: "
     )
 
 
-    password = receive_input(client)
+    password = receive_input(
+        client
+    )
 
 
-    print("----- Login Attempt -----")
-    print(f"IP: {attacker_ip}")
-    print(f"Username: {username}")
-    print(f"Password: {password}")
-    print("-------------------------")
+    save_log(
+        attacker_ip,
+        username,
+        password
+    )
+
+
+    print(
+        "[+] Attack saved"
+    )
 
 
     client.send(
