@@ -11,6 +11,7 @@ from datetime import datetime
 
 HOST = "0.0.0.0"
 PORT = 2323
+attack_counter = {}
 
 
 def receive_input(client):
@@ -70,7 +71,28 @@ def save_log(ip, username, password):
             "====================\n\n"
         )
 
+def detect_bruteforce(ip):
 
+    if ip not in attack_counter:
+
+        attack_counter[ip] = 1
+
+
+    else:
+
+        attack_counter[ip] += 1
+
+
+    if attack_counter[ip] >= 3:
+
+        print(
+            "[ALERT] Possible brute force detected!"
+        )
+
+
+        print(
+            f"Attacker IP: {ip}"
+        )
 
 server = socket.socket(
     socket.AF_INET,
@@ -136,6 +158,9 @@ while True:
         password
     )
 
+    detect_bruteforce(
+        attacker_ip
+    )
 
     print(
         "[+] Attack saved"
