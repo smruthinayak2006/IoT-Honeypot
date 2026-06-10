@@ -8,7 +8,7 @@ import socket
 
 from logger import save_log
 from detector import detect_bruteforce
-
+from database import save_attack
 
 
 HOST = "0.0.0.0"
@@ -125,7 +125,11 @@ def start_server():
             password
         )
 
-
+        save_attack(
+            attacker_ip,
+            username,
+            password
+        )
 
         detect_bruteforce(
             attacker_ip
