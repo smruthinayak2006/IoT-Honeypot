@@ -9,8 +9,8 @@ sys.path.append(
 
 from analyzer import (
     total_attacks,
-    common_usernames,
-    common_passwords
+    top_usernames,
+    top_passwords
 )
 
 
@@ -26,7 +26,7 @@ print("===================")
 total_attacks()
 
 
-common_usernames()
+top_usernames()
 
 
-common_passwords()
+top_passwords()

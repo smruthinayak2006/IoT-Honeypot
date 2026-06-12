@@ -5,18 +5,14 @@ Attack Analysis Engine
 import sqlite3
 
 
-
-DATABASE_PATH = "database/attacks.db"
-
+DATABASE = "database/attacks.db"
 
 
 def total_attacks():
 
-
     connection = sqlite3.connect(
-        DATABASE_PATH
+        DATABASE
     )
-
 
     cursor = connection.cursor()
 
@@ -29,35 +25,33 @@ def total_attacks():
     result = cursor.fetchone()
 
 
-    connection.close()
-
-
     print(
         f"Total Attacks: {result[0]}"
     )
 
 
+    connection.close()
 
-def common_usernames():
 
+
+def top_usernames():
 
     connection = sqlite3.connect(
-        DATABASE_PATH
+        DATABASE
     )
-
 
     cursor = connection.cursor()
 
 
     cursor.execute(
         """
-        SELECT username, COUNT(username)
+        SELECT username, COUNT(*)
 
         FROM attacks
 
         GROUP BY username
 
-        ORDER BY COUNT(username) DESC
+        ORDER BY COUNT(*) DESC
         """
     )
 
@@ -65,14 +59,15 @@ def common_usernames():
     results = cursor.fetchall()
 
 
-    print("\nMost Tried Usernames:")
+    print(
+        "\nTop Usernames:"
+    )
 
 
-    for row in results:
-
+    for username, count in results:
 
         print(
-            f"{row[0]} : {row[1]} attempts"
+            f"{username}: {count}"
         )
 
 
@@ -80,11 +75,10 @@ def common_usernames():
 
 
 
-def common_passwords():
-
+def top_passwords():
 
     connection = sqlite3.connect(
-        DATABASE_PATH
+        DATABASE
     )
 
 
@@ -93,13 +87,13 @@ def common_passwords():
 
     cursor.execute(
         """
-        SELECT password, COUNT(password)
+        SELECT password, COUNT(*)
 
         FROM attacks
 
         GROUP BY password
 
-        ORDER BY COUNT(password) DESC
+        ORDER BY COUNT(*) DESC
         """
     )
 
@@ -107,14 +101,15 @@ def common_passwords():
     results = cursor.fetchall()
 
 
-    print("\nMost Tried Passwords:")
+    print(
+        "\nTop Passwords:"
+    )
 
 
-    for row in results:
-
+    for password, count in results:
 
         print(
-            f"{row[0]} : {row[1]} attempts"
+            f"{password}: {count}"
         )
 
 

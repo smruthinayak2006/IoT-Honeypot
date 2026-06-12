@@ -72,8 +72,8 @@ def save_attack(
 
         (
         ip,
-        username,
-        password,
+        username.strip(),
+        password.strip(),
         str(datetime.now())
         )
     )
