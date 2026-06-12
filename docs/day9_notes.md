@@ -20,3 +20,27 @@ Analyzer Features:
 Purpose:
 
 Convert raw attack data into useful security information.
+
+Additional Debugging:
+
+Issue:
+Analyzer showed duplicate usernames.
+
+Cause:
+Raw Telnet input contained hidden terminal characters.
+
+Examples:
+- Backspace characters
+- Escape sequences from arrow keys
+
+Fix:
+Created input sanitization module.
+
+Added:
+utils.py
+
+Purpose:
+Clean attacker input before database storage.
+
+Learning:
+Security logs must be normalized before analysis.
