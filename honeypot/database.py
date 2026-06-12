@@ -4,7 +4,7 @@ Database handling for IoT Honeypot
 
 import sqlite3
 from datetime import datetime
-
+from utils import clean_input
 
 def create_database():
 
@@ -72,8 +72,8 @@ def save_attack(
 
         (
         ip,
-        username.strip(),
-        password.strip(),
+        clean_input(username),
+        clean_input(password),
         str(datetime.now())
         )
     )
