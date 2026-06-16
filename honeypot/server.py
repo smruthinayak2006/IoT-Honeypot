@@ -13,40 +13,64 @@ HOST = "0.0.0.0"
 PORT = 2323
 
 
+# -----------------------------
+# SAFE RECEIVE FUNCTION
+# -----------------------------
 def receive_input(client):
 
     data = ""
 
-    while True:
+    try:
 
-        character = client.recv(1)
+        while True:
 
-        if not character:
-            break
+            character = client.recv(1).decode(errors="ignore")
 
-        character = character.decode()
+            if not character:
+                break
 
-        # Telnet sends ENTER as \r\n
-        if character == "\r":
-            continue
+            if character == "\n":
+                break
 
-        if character == "\n":
-            break
+            data += character
 
-        data += character
+
+    except (ConnectionResetError, ConnectionAbortedError):
+
+        # client disconnected suddenly
+        pass
 
 
     return data.strip()
 
 
+# -----------------------------
+# SAFE SEND FUNCTION (FIX)
+# -----------------------------
+def safe_send(client, message):
 
+    try:
+
+        client.send(message)
+
+    except (
+        BrokenPipeError,
+        ConnectionResetError,
+        ConnectionAbortedError
+    ):
+        # client already disconnected
+        pass
+
+
+# -----------------------------
+# MAIN SERVER
+# -----------------------------
 def start_server():
 
     server = socket.socket(
         socket.AF_INET,
         socket.SOCK_STREAM
     )
-
 
     server.bind(
         (HOST, PORT)
@@ -56,91 +80,39 @@ def start_server():
 
     server.settimeout(1)
 
-    print(
-        "[+] IoT Honeypot Running"
-    )
-
-
-    print(
-        f"[+] Listening on {PORT}"
-    )
-
+    print("[+] IoT Honeypot Running")
+    print(f"[+] Listening on {PORT}")
 
     while True:
 
-
         try:
-
-
             client, address = server.accept()
 
-
         except socket.timeout:
-
-
             continue
-
 
         attacker_ip = address[0]
 
+        print(f"[!] Connection from {attacker_ip}")
 
-        print(
-            f"[!] Connection from {attacker_ip}"
-        )
+        # -----------------------------
+        # INTERACTION FLOW
+        # -----------------------------
 
+        safe_send(client, b"Fake IoT Camera\n")
 
-        client.send(
-            b"Fake IoT Camera\n"
-        )
+        safe_send(client, b"Username: ")
+        username = receive_input(client)
 
+        safe_send(client, b"Password: ")
+        password = receive_input(client)
 
-        client.send(
-            b"Username: "
-        )
+        save_log(attacker_ip, username, password)
+        save_attack(attacker_ip, username, password)
+        detect_bruteforce(attacker_ip)
 
+        print("[+] Attack saved")
 
-        username = receive_input(
-            client
-        )
-
-
-        client.send(
-            b"Password: "
-        )
-
-
-        password = receive_input(
-            client
-        )
-
-
-        save_log(
-            attacker_ip,
-            username,
-            password
-        )
-
-
-        save_attack(
-            attacker_ip,
-            username,
-            password
-        )
-
-
-        detect_bruteforce(
-            attacker_ip
-        )
-
-
-        print(
-            "[+] Attack saved"
-        )
-
-
-        client.send(
-            b"Login failed\n"
-        )
-
+        safe_send(client, b"Login failed\n")
 
         client.close()

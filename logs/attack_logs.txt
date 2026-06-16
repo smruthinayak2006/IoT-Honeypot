@@ -173,3 +173,437 @@ Username: camersa
 Password: 123456
 ====================
 
+====================
+Time: 2026-06-16 19:36:21.531453
+IP Address: 127.0.0.1
+Username: admin:123456
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:45.149613
+IP Address: 127.0.0.1
+Username: admin:123456
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:45.651112
+IP Address: 127.0.0.1
+Username: admin:admin123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:46.153588
+IP Address: 127.0.0.1
+Username: admin:password
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:46.656045
+IP Address: 127.0.0.1
+Username: admin:camera123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:47.158365
+IP Address: 127.0.0.1
+Username: root:123456
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:47.660815
+IP Address: 127.0.0.1
+Username: root:admin123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:48.163257
+IP Address: 127.0.0.1
+Username: root:password
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:48.665650
+IP Address: 127.0.0.1
+Username: root:camera123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:49.167727
+IP Address: 127.0.0.1
+Username: camera:123456
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:49.669877
+IP Address: 127.0.0.1
+Username: camera:admin123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:50.172073
+IP Address: 127.0.0.1
+Username: camera:password
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:40:50.673436
+IP Address: 127.0.0.1
+Username: camera:camera123
+Password: 
+====================
+
+====================
+Time: 2026-06-16 19:43:31.012494
+IP Address: 127.0.0.1
+Username: admin
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:43:31.519961
+IP Address: 127.0.0.1
+Username: admin
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:43:32.037111
+IP Address: 127.0.0.1
+Username: admin
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:43:32.553643
+IP Address: 127.0.0.1
+Username: admin
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:43:33.071230
+IP Address: 127.0.0.1
+Username: root
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:43:33.588615
+IP Address: 127.0.0.1
+Username: root
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:43:34.103768
+IP Address: 127.0.0.1
+Username: root
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:43:34.614555
+IP Address: 127.0.0.1
+Username: root
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:43:35.128888
+IP Address: 127.0.0.1
+Username: camera
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:43:35.643540
+IP Address: 127.0.0.1
+Username: camera
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:43:36.159091
+IP Address: 127.0.0.1
+Username: camera
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:43:36.674245
+IP Address: 127.0.0.1
+Username: camera
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:46:14.329558
+IP Address: 127.0.0.1
+Username: admin
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:46:14.641994
+IP Address: 127.0.0.1
+Username: admin
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:46:14.957562
+IP Address: 127.0.0.1
+Username: admin
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:46:15.273177
+IP Address: 127.0.0.1
+Username: admin
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:46:15.588273
+IP Address: 127.0.0.1
+Username: root
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:46:15.902323
+IP Address: 127.0.0.1
+Username: root
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:46:16.217300
+IP Address: 127.0.0.1
+Username: root
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:46:16.526894
+IP Address: 127.0.0.1
+Username: root
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:46:16.843921
+IP Address: 127.0.0.1
+Username: camera
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:46:17.155382
+IP Address: 127.0.0.1
+Username: camera
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:46:17.470254
+IP Address: 127.0.0.1
+Username: camera
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:46:17.785066
+IP Address: 127.0.0.1
+Username: camera
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:48:50.313834
+IP Address: 127.0.0.1
+Username: admin
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:48:50.325731
+IP Address: 127.0.0.1
+Username: admin
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:48:50.633569
+IP Address: 127.0.0.1
+Username: admin
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:48:50.943869
+IP Address: 127.0.0.1
+Username: admin
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:48:51.260537
+IP Address: 127.0.0.1
+Username: admin
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:48:51.575696
+IP Address: 127.0.0.1
+Username: root
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:48:51.889127
+IP Address: 127.0.0.1
+Username: root
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:48:52.203838
+IP Address: 127.0.0.1
+Username: root
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:48:52.519850
+IP Address: 127.0.0.1
+Username: root
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:48:52.835715
+IP Address: 127.0.0.1
+Username: camera
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:48:53.151858
+IP Address: 127.0.0.1
+Username: camera
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:48:53.467611
+IP Address: 127.0.0.1
+Username: camera
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:48:53.784435
+IP Address: 127.0.0.1
+Username: camera
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:57:22.008246
+IP Address: 127.0.0.1
+Username: admin
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:57:22.517785
+IP Address: 127.0.0.1
+Username: admin
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:57:23.037133
+IP Address: 127.0.0.1
+Username: admin
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:57:23.555638
+IP Address: 127.0.0.1
+Username: admin
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:57:24.068134
+IP Address: 127.0.0.1
+Username: root
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:57:24.584210
+IP Address: 127.0.0.1
+Username: root
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:57:25.097859
+IP Address: 127.0.0.1
+Username: root
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:57:25.607913
+IP Address: 127.0.0.1
+Username: root
+Password: camera123
+====================
+
+====================
+Time: 2026-06-16 19:57:26.120179
+IP Address: 127.0.0.1
+Username: camera
+Password: 123456
+====================
+
+====================
+Time: 2026-06-16 19:57:26.636013
+IP Address: 127.0.0.1
+Username: camera
+Password: admin123
+====================
+
+====================
+Time: 2026-06-16 19:57:27.151227
+IP Address: 127.0.0.1
+Username: camera
+Password: password
+====================
+
+====================
+Time: 2026-06-16 19:57:27.665085
+IP Address: 127.0.0.1
+Username: camera
+Password: camera123
+====================
+
