@@ -1,15 +1,16 @@
-Day 12 Notes
+# Day 12 Notes
 
-Implemented:
+## Implemented
 - Automated attack simulator
-- Multiple credential testing
-- Brute force simulation
+- Multiple credential attempts
+- Brute force testing
 
-Improved:
-- Socket error handling
-- Safe client communication
+## Improvements
+- Added safe socket communication
+- Handled unexpected client disconnects
+- Improved attacker simulation output
 
-Learned:
-- Attack automation
-- TCP connection failures
-- Defensive socket programming
+## Learned
+- TCP connections can fail unexpectedly
+- Servers should handle unreliable clients
+- Automated testing helps validate honeypot behavior
