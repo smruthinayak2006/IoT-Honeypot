@@ -1,60 +1,61 @@
 """
-Database handling for IoT Honeypot
+SQLite database handler
 """
 
 import sqlite3
 from datetime import datetime
-from utils import clean_input
-
-def create_database():
-
-    connection = sqlite3.connect(
-        "database/attacks.db"
-    )
 
 
-    cursor = connection.cursor()
+DATABASE = "database/attacks.db"
+
+
+def create_table():
+
+    conn = sqlite3.connect(DATABASE)
+
+    cursor = conn.cursor()
 
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS attacks (
-
+        CREATE TABLE IF NOT EXISTS attacks(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-
             ip_address TEXT,
-
             username TEXT,
-
             password TEXT,
-
             timestamp TEXT
-
         )
         """
     )
 
 
-    connection.commit()
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS alerts(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ip_address TEXT,
+            message TEXT,
+            timestamp TEXT
+        )
+        """
+    )
 
 
-    connection.close()
+    conn.commit()
+
+    conn.close()
 
 
 
 def save_attack(
-        ip,
+        ip_address,
         username,
         password
 ):
 
+    conn = sqlite3.connect(DATABASE)
 
-    connection = sqlite3.connect(
-        "database/attacks.db"
-    )
-
-
-    cursor = connection.cursor()
+    cursor = conn.cursor()
 
 
     cursor.execute(
@@ -71,15 +72,50 @@ def save_attack(
         """,
 
         (
-        ip,
-        clean_input(username),
-        clean_input(password),
+        ip_address,
+        username,
+        password,
         str(datetime.now())
         )
     )
 
 
-    connection.commit()
+    conn.commit()
+
+    conn.close()
 
 
-    connection.close()
+
+def save_alert(
+        ip_address,
+        message
+):
+
+    conn = sqlite3.connect(DATABASE)
+
+    cursor = conn.cursor()
+
+
+    cursor.execute(
+        """
+        INSERT INTO alerts
+        (
+        ip_address,
+        message,
+        timestamp
+        )
+
+        VALUES (?, ?, ?)
+        """,
+
+        (
+        ip_address,
+        message,
+        str(datetime.now())
+        )
+    )
+
+
+    conn.commit()
+
+    conn.close()

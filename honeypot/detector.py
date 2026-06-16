@@ -1,28 +1,27 @@
 """
-Detect suspicious activity
+Brute force detector
 """
 
-
-attack_counter = {}
-
-
-def detect_bruteforce(ip):
+from database import save_alert
 
 
-    if ip not in attack_counter:
+attack_count = {}
 
 
-        attack_counter[ip] = 1
+def detect_bruteforce(ip_address):
+
+    if ip_address not in attack_count:
+
+        attack_count[ip_address] = 1
 
 
     else:
 
-
-        attack_counter[ip] += 1
-
+        attack_count[ip_address] += 1
 
 
-    if attack_counter[ip] >= 3:
+
+    if attack_count[ip_address] >= 3:
 
 
         print(
@@ -31,5 +30,12 @@ def detect_bruteforce(ip):
 
 
         print(
-            f"Attacker IP: {ip}"
+            "Attacker IP:",
+            ip_address
+        )
+
+
+        save_alert(
+            ip_address,
+            "Possible brute force attack detected"
         )
