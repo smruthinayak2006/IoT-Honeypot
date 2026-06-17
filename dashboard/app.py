@@ -1,5 +1,5 @@
 """
-IoT Honeypot Dashboard - Day 11 Upgrade
+IoT Honeypot Security Dashboard
 """
 
 import streamlit as st
@@ -11,89 +11,179 @@ import matplotlib.pyplot as plt
 DATABASE = "database/attacks.db"
 
 
-def load_data():
+# -----------------------------
+# DATABASE FUNCTIONS
+# -----------------------------
+
+def load_attacks():
 
     conn = sqlite3.connect(DATABASE)
 
-    df = pd.read_sql_query(
+    data = pd.read_sql_query(
         "SELECT * FROM attacks",
         conn
     )
 
     conn.close()
 
-    return df
+    return data
 
 
-st.title("IoT Honeypot Security Dashboard")
 
-attacks = load_data()
+def load_alerts():
+
+    conn = sqlite3.connect(DATABASE)
+
+    data = pd.read_sql_query(
+        "SELECT * FROM alerts",
+        conn
+    )
+
+    conn.close()
+
+    return data
 
 
-# ----------------------------
-# KPI SECTION
-# ----------------------------
-st.subheader("System Overview")
+
+# -----------------------------
+# LOAD DATA
+# -----------------------------
+
+attacks = load_attacks()
+
+alerts = load_alerts()
+
+
+# -----------------------------
+# DASHBOARD
+# -----------------------------
+
+st.title(
+    "IoT Honeypot Security Dashboard"
+)
+
+
+st.subheader(
+    "System Overview"
+)
+
 
 col1, col2, col3 = st.columns(3)
 
+
 with col1:
-    st.metric("Total Attacks", len(attacks))
+
+    st.metric(
+        "Total Attacks",
+        len(attacks)
+    )
+
 
 with col2:
-    st.metric("Unique IPs", attacks["ip_address"].nunique())
+
+    st.metric(
+        "Unique Attackers",
+        attacks["ip_address"].nunique()
+    )
+
 
 with col3:
-    st.metric("Unique Usernames", attacks["username"].nunique())
+
+    st.metric(
+        "Security Alerts",
+        len(alerts)
+    )
 
 
-# ----------------------------
-# TABLE VIEW
-# ----------------------------
-st.subheader("Attack Logs")
-st.dataframe(attacks)
+
+# -----------------------------
+# ALERT SECTION
+# -----------------------------
+
+st.subheader(
+    "🚨 Security Alerts"
+)
 
 
-# ----------------------------
+if len(alerts) > 0:
+
+
+    st.warning(
+        "Threat activity detected!"
+    )
+
+
+    st.dataframe(
+        alerts
+    )
+
+
+else:
+
+
+    st.success(
+        "No threats detected"
+    )
+
+
+
+# -----------------------------
+# ATTACK LOGS
+# -----------------------------
+
+st.subheader(
+    "Attack Records"
+)
+
+
+st.dataframe(
+    attacks
+)
+
+
+
+# -----------------------------
 # USERNAME CHART
-# ----------------------------
-st.subheader("Top Targeted Usernames")
+# -----------------------------
 
-username_counts = attacks["username"].value_counts()
+st.subheader(
+    "Top Usernames"
+)
+
 
 fig1, ax1 = plt.subplots()
-username_counts.plot(kind="bar", ax=ax1)
-ax1.set_ylabel("Attempts")
-ax1.set_xlabel("Username")
-
-st.pyplot(fig1)
 
 
-# ----------------------------
+attacks["username"].value_counts().plot(
+    kind="bar",
+    ax=ax1
+)
+
+
+st.pyplot(
+    fig1
+)
+
+
+
+# -----------------------------
 # PASSWORD CHART
-# ----------------------------
-st.subheader("Most Tried Passwords")
+# -----------------------------
 
-password_counts = attacks["password"].value_counts()
+st.subheader(
+    "Top Passwords"
+)
+
 
 fig2, ax2 = plt.subplots()
-password_counts.plot(kind="bar", ax=ax2)
-ax2.set_ylabel("Attempts")
-ax2.set_xlabel("Password")
-
-st.pyplot(fig2)
 
 
-# ----------------------------
-# IP ANALYSIS
-# ----------------------------
-st.subheader("Top Attacking IPs")
+attacks["password"].value_counts().plot(
+    kind="bar",
+    ax=ax2
+)
 
-ip_counts = attacks["ip_address"].value_counts().head(10)
 
-fig3, ax3 = plt.subplots()
-ip_counts.plot(kind="bar", ax=ax3)
-ax3.set_ylabel("Attempts")
-ax3.set_xlabel("IP Address")
-
-st.pyplot(fig3)
+st.pyplot(
+    fig2
+)
