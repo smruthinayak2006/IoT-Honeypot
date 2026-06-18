@@ -21,8 +21,7 @@ A cybersecurity project that simulates a vulnerable IoT device to detect, captur
 
 ### IoT Device Simulation
 
-![IoT Device Simulation](screenshots/day15_iot_dashboard.png)
-
+![IoT Device Simulation](screenshots/day15_iot_device_simulation.png)
 
 ### Security Monitoring Dashboard
 
