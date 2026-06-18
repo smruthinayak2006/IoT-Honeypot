@@ -7,6 +7,16 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import sys
+
+
+sys.path.append(
+    "honeypot"
+)
+
+
+from report import generate_report
+
 
 DATABASE = "database/attacks.db"
 
@@ -187,3 +197,38 @@ attacks["password"].value_counts().plot(
 st.pyplot(
     fig2
 )
+
+# -----------------------------
+# REPORT GENERATION
+# -----------------------------
+
+
+st.subheader(
+    "Generate Security Report"
+)
+
+
+if st.button(
+    "Generate Report"
+):
+
+
+    report_file = generate_report()
+
+
+    with open(
+        report_file,
+        "rb"
+    ) as file:
+
+
+        st.download_button(
+
+            label="Download Report",
+
+            data=file,
+
+            file_name="honeypot_report.csv",
+
+            mime="text/csv"
+        )

@@ -42,8 +42,7 @@ def generate_report():
         "reports/"
         "attack_report_"
         + datetime.now().strftime(
-            "%Y%m%d_%H%M%S"
-        )
+            "%Y%m%d_%H%M%S")
         + ".csv"
     )
 
@@ -80,8 +79,4 @@ def generate_report():
     conn.close()
 
 
-
-    print(
-        "[+] Report generated:",
-        filename
-    )
+    return filename

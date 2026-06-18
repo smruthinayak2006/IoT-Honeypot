@@ -1,29 +1,111 @@
-# IoT Honeypot Attack Detection
+# IoT Honeypot for Attack Detection
 
-A beginner cybersecurity project that creates a fake IoT device to capture attacker activity.
+A cybersecurity project that simulates a vulnerable IoT device to detect, capture, analyze, and report attacker activity.
 
-## Project Goal
 
-This project creates a fake IoT device honeypot that monitors suspicious login attempts and records attacker activity.
+## Features
 
-## Planned Features
+- Fake IoT camera simulation
+- Telnet-based honeypot service
+- Attacker credential capture
+- Attack logging system
+- SQLite database storage
+- Brute force detection
+- Security alert generation
+- Attack analytics dashboard
+- Graph based visualization
+- CSV security report generation
 
-- Fake Telnet service
-- Login attempt capture
-- IP address logging
-- Timestamp recording
-- Attack report generation
 
-## Technologies
+## Architecture
+
+Attacker
+    |
+    v
+
+Fake IoT Device
+    |
+    v
+
+Honeypot Engine
+    |
+    +--> Logs
+    |
+    +--> SQLite Database
+    |
+    +--> Detection Engine
+    |
+    +--> Alerts
+            |
+            v
+
+Security Dashboard + Reports
+
+
+## Technology Stack
 
 - Python
-- Linux
-- Git
-- Docker
+- Socket Programming
+- SQLite
+- Streamlit
+- Pandas
+- Matplotlib
+- Git/GitHub
 
-## Future Enhancements
 
-- IoT device simulation using Tinkercad
-- Attack visualization dashboard
-- Threat analysis reports
-- Docker deployment
+## Project Modules
+
+### Honeypot Server
+
+Simulates an IoT device and captures unauthorized login attempts.
+
+
+### Detection Engine
+
+Analyzes repeated login attempts and identifies brute force activity.
+
+
+### Database
+
+Stores:
+
+- Attacker IP address
+- Username attempts
+- Password attempts
+- Timestamp
+- Security alerts
+
+
+### Dashboard
+
+Provides:
+
+- Attack statistics
+- Top usernames
+- Top passwords
+- Attacker monitoring
+- Alert visibility
+- Report download
+
+
+## Purpose
+
+This project demonstrates how honeypots can be used in cybersecurity for:
+
+- Threat intelligence
+- Attack monitoring
+- Credential analysis
+- Security research
+
+
+## Status
+
+Implemented:
+
+✔ IoT Device Simulation  
+✔ Attack Capture  
+✔ Database Storage  
+✔ Brute Force Detection  
+✔ Security Alerts  
+✔ Dashboard Monitoring  
+✔ Report Generation
