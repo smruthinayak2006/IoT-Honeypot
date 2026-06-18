@@ -1,27 +1,32 @@
 """
-Brute force detector
+Attack Detection Engine
 """
 
-from database import save_alert
+
+from database import save_alert, block_ip
 
 
-attack_count = {}
+attempts = {}
+
+LIMIT = 5
 
 
-def detect_bruteforce(ip_address):
 
-    if ip_address not in attack_count:
+def detect_bruteforce(ip):
 
-        attack_count[ip_address] = 1
+
+    if ip not in attempts:
+
+        attempts[ip] = 1
 
 
     else:
 
-        attack_count[ip_address] += 1
+        attempts[ip] += 1
 
 
 
-    if attack_count[ip_address] >= 3:
+    if attempts[ip] >= LIMIT:
 
 
         print(
@@ -31,11 +36,16 @@ def detect_bruteforce(ip_address):
 
         print(
             "Attacker IP:",
-            ip_address
+            ip
         )
 
 
         save_alert(
-            ip_address,
+            ip,
             "Possible brute force attack detected"
+        )
+
+
+        block_ip(
+            ip
         )

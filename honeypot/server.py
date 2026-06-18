@@ -6,7 +6,7 @@ import socket
 
 from logger import save_log
 from detector import detect_bruteforce
-from database import save_attack
+from database import save_attack, is_blocked
 from device import get_device_info
 
 
@@ -55,6 +55,7 @@ def receive_input(client):
         ConnectionResetError,
         ConnectionAbortedError
     ):
+
         pass
 
 
@@ -96,6 +97,7 @@ def start_server():
     print(f"[+] Listening on {PORT}")
 
 
+
     while True:
 
 
@@ -113,12 +115,39 @@ def start_server():
         attacker_ip = address[0]
 
 
+
+        if is_blocked(
+            attacker_ip
+        ):
+
+
+            print(
+                "[BLOCKED]",
+                attacker_ip
+            )
+
+
+            safe_send(
+                client,
+                b"Access blocked\r\n"
+            )
+
+
+            client.close()
+
+
+            continue
+
+
+
         print(
             f"[!] Connection from {attacker_ip}"
         )
 
 
+
         device = get_device_info()
+
 
 
         banner = (
@@ -134,6 +163,8 @@ def start_server():
             "====================================\r\n"
             "\r\n"
         )
+
+
 
         safe_send(
             client,
@@ -163,11 +194,13 @@ def start_server():
         )
 
 
+
         save_log(
             attacker_ip,
             username,
             password
         )
+
 
 
         save_attack(
@@ -177,9 +210,11 @@ def start_server():
         )
 
 
+
         detect_bruteforce(
             attacker_ip
         )
+
 
 
         print(
@@ -187,9 +222,10 @@ def start_server():
         )
 
 
+
         safe_send(
             client,
-            b"\nAccess Denied\n"
+            b"\r\nAccess Denied\r\n"
         )
 
 

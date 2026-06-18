@@ -1,5 +1,5 @@
 """
-SQLite database handler
+Database Operations
 """
 
 import sqlite3
@@ -9,9 +9,13 @@ from datetime import datetime
 DATABASE = "database/attacks.db"
 
 
+
 def create_table():
 
-    conn = sqlite3.connect(DATABASE)
+
+    conn = sqlite3.connect(
+        DATABASE
+    )
 
     cursor = conn.cursor()
 
@@ -19,11 +23,13 @@ def create_table():
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS attacks(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            ip_address TEXT,
-            username TEXT,
-            password TEXT,
-            timestamp TEXT
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ip_address TEXT,
+        username TEXT,
+        password TEXT,
+        timestamp TEXT
+
         )
         """
     )
@@ -32,10 +38,25 @@ def create_table():
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS alerts(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            ip_address TEXT,
-            message TEXT,
-            timestamp TEXT
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ip_address TEXT,
+        message TEXT,
+        timestamp TEXT
+
+        )
+        """
+    )
+
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS blocked_ips(
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ip_address TEXT UNIQUE,
+        timestamp TEXT
+
         )
         """
     )
@@ -48,12 +69,15 @@ def create_table():
 
 
 def save_attack(
-        ip_address,
+        ip,
         username,
         password
 ):
 
-    conn = sqlite3.connect(DATABASE)
+
+    conn = sqlite3.connect(
+        DATABASE
+    )
 
     cursor = conn.cursor()
 
@@ -61,21 +85,16 @@ def save_attack(
     cursor.execute(
         """
         INSERT INTO attacks
-        (
-        ip_address,
-        username,
-        password,
-        timestamp
-        )
+        (ip_address, username, password, timestamp)
 
         VALUES (?, ?, ?, ?)
         """,
 
         (
-        ip_address,
-        username,
-        password,
-        str(datetime.now())
+            ip,
+            username,
+            password,
+            datetime.now()
         )
     )
 
@@ -87,11 +106,14 @@ def save_attack(
 
 
 def save_alert(
-        ip_address,
+        ip,
         message
 ):
 
-    conn = sqlite3.connect(DATABASE)
+
+    conn = sqlite3.connect(
+        DATABASE
+    )
 
     cursor = conn.cursor()
 
@@ -99,19 +121,15 @@ def save_alert(
     cursor.execute(
         """
         INSERT INTO alerts
-        (
-        ip_address,
-        message,
-        timestamp
-        )
+        (ip_address,message,timestamp)
 
-        VALUES (?, ?, ?)
+        VALUES(?,?,?)
         """,
 
         (
-        ip_address,
-        message,
-        str(datetime.now())
+            ip,
+            message,
+            datetime.now()
         )
     )
 
@@ -119,3 +137,72 @@ def save_alert(
     conn.commit()
 
     conn.close()
+
+
+
+def block_ip(
+        ip
+):
+
+
+    conn = sqlite3.connect(
+        DATABASE
+    )
+
+
+    cursor = conn.cursor()
+
+
+    cursor.execute(
+        """
+        INSERT OR IGNORE INTO blocked_ips
+        (ip_address,timestamp)
+
+        VALUES(?,?)
+        """,
+
+        (
+            ip,
+            datetime.now()
+        )
+    )
+
+
+    conn.commit()
+
+    conn.close()
+
+
+
+def is_blocked(
+        ip
+):
+
+
+    conn = sqlite3.connect(
+        DATABASE
+    )
+
+
+    cursor = conn.cursor()
+
+
+    cursor.execute(
+        """
+        SELECT * FROM blocked_ips
+        WHERE ip_address=?
+        """,
+
+        (
+            ip,
+        )
+    )
+
+
+    result = cursor.fetchone()
+
+
+    conn.close()
+
+
+    return result is not None
