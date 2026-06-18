@@ -17,6 +17,28 @@ A cybersecurity project that simulates a vulnerable IoT device to detect, captur
 - CSV security report generation
 
 
+## Screenshots
+
+### IoT Device Simulation
+
+![IoT Device Simulation](screenshots/day15_iot_dashboard.png)
+
+
+### Security Monitoring Dashboard
+
+![Dashboard](screenshots/day11_dashboard_overview.png)
+
+
+### Brute Force Alert Detection
+
+![Security Alerts](screenshots/day14_security_alert_dashboard.png)
+
+
+### Automated IP Blocking
+
+![IP Blocking](screenshots/day18_ip_blocking.png)
+
+
 ## Architecture
 
 Attacker
