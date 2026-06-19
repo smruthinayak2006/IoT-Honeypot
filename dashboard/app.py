@@ -16,7 +16,7 @@ sys.path.append(
 
 
 from report import generate_report
-
+from database import unblock_ip
 
 DATABASE = "database/attacks.db"
 
@@ -232,3 +232,54 @@ if st.button(
 
             mime="text/csv"
         )
+
+# -------------------------
+# BLOCKED IPS
+# -------------------------
+
+st.subheader(
+    "Blocked Attackers"
+)
+
+
+connection = sqlite3.connect(
+    "database/attacks.db"
+)
+
+
+blocked = pd.read_sql_query(
+    "SELECT * FROM blocked_ips",
+    connection
+)
+
+
+st.dataframe(
+    blocked
+)
+
+
+if len(blocked) > 0:
+
+
+    selected_ip = st.selectbox(
+        "Select IP to unblock",
+        blocked["ip_address"]
+    )
+
+
+    if st.button(
+        "Unblock IP"
+    ):
+
+
+        unblock_ip(
+            selected_ip
+        )
+
+
+        st.success(
+            "IP Unblocked Successfully"
+        )
+
+
+connection.close()
