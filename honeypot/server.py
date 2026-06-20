@@ -9,7 +9,7 @@ from detector import detect_bruteforce
 from database import save_attack, is_blocked
 from device import get_device_info
 from config import HOST, PORT
-
+from security_logger import log_info, log_warning
 
 HOST = "0.0.0.0"
 PORT = 2323
@@ -95,6 +95,9 @@ def start_server():
 
 
     print("[+] IoT Honeypot Running")
+    log_info(
+        "IoT Honeypot server started"
+    )
     print(f"[+] Listening on {PORT}")
 
 
@@ -126,6 +129,9 @@ def start_server():
                 "[BLOCKED]",
                 attacker_ip
             )
+            log_warning(
+                f"Blocked connection from {attacker_ip}"
+            )
 
 
             safe_send(
@@ -144,7 +150,9 @@ def start_server():
         print(
             f"[!] Connection from {attacker_ip}"
         )
-
+        log_warning(
+            f"Connection attempt from {attacker_ip}"
+        )
 
 
         device = get_device_info()
@@ -221,7 +229,9 @@ def start_server():
         print(
             "[+] Attack saved"
         )
-
+        log_info(
+            f"Attack saved from {attacker_ip}"
+        )
 
 
         safe_send(

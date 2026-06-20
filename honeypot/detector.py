@@ -5,7 +5,7 @@ Attack Detection Engine
 
 from database import save_alert, block_ip
 from config import BRUTE_FORCE_LIMIT
-
+from security_logger import log_critical
 
 attempts = {}
 
@@ -28,8 +28,8 @@ def detect_bruteforce(ip):
     if attempts[ip] >= BRUTE_FORCE_LIMIT:
 
 
-        print(
-            "[ALERT] Possible brute force detected!"
+        log_critical(
+            f"Brute force detected from {ip}"
         )
 
 

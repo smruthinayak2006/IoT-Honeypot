@@ -2,3 +2,5 @@ logs/*.txt
 __pycache__/
 *.pyc
 database/*.db
+__pycache__/
+*.pyc
