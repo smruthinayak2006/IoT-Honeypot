@@ -283,3 +283,67 @@ if len(blocked) > 0:
 
 
 connection.close()
+
+# -------------------------
+# SECURITY LOG VIEWER
+# -------------------------
+
+
+st.subheader(
+    "Security Event Logs"
+)
+
+
+try:
+
+
+    with open(
+        "logs/security.log",
+        "r"
+    ) as file:
+
+
+        logs = file.readlines()
+
+
+    recent_logs = logs[
+        -20:
+    ]
+
+
+    for log in reversed(
+        recent_logs
+    ):
+
+
+        if "CRITICAL" in log:
+
+
+            st.error(
+                log
+            )
+
+
+        elif "WARNING" in log:
+
+
+            st.warning(
+                log
+            )
+
+
+        else:
+
+
+            st.info(
+                log
+            )
+
+
+
+except FileNotFoundError:
+
+
+    st.info(
+        "No security logs available"
+    )
