@@ -7,7 +7,7 @@ import csv
 import os
 
 from datetime import datetime
-
+from config import REPORT_FOLDER
 
 DATABASE = "database/attacks.db"
 

@@ -4,15 +4,15 @@ Database Operations
 
 import sqlite3
 from datetime import datetime
-
-
-DATABASE = "database/attacks.db"
+from config import DATABASE_PATH
 
 
 
 def create_table():
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
 
@@ -59,7 +59,9 @@ def create_table():
 
 def save_attack(ip, username, password):
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
     cursor.execute(
@@ -84,7 +86,9 @@ def save_attack(ip, username, password):
 
 def save_alert(ip, message):
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
 
@@ -110,7 +114,9 @@ def save_alert(ip, message):
 
 def block_ip(ip):
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
 
@@ -135,7 +141,9 @@ def block_ip(ip):
 
 def is_blocked(ip):
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
 
@@ -158,7 +166,9 @@ def is_blocked(ip):
 
 def unblock_ip(ip):
 
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(
+                DATABASE_PATH
+            )
     cursor = conn.cursor()
 
 

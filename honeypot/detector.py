@@ -4,11 +4,10 @@ Attack Detection Engine
 
 
 from database import save_alert, block_ip
+from config import BRUTE_FORCE_LIMIT
 
 
 attempts = {}
-
-LIMIT = 5
 
 
 
@@ -26,7 +25,7 @@ def detect_bruteforce(ip):
 
 
 
-    if attempts[ip] >= LIMIT:
+    if attempts[ip] >= BRUTE_FORCE_LIMIT:
 
 
         print(

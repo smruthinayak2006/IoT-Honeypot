@@ -8,6 +8,7 @@ from logger import save_log
 from detector import detect_bruteforce
 from database import save_attack, is_blocked
 from device import get_device_info
+from config import HOST, PORT
 
 
 HOST = "0.0.0.0"
