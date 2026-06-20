@@ -1,0 +1,40 @@
+[33m3081ab6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Added professional security logging system
+[33mb8bc4fa[m Added centralized configuration management
+[33mdc1fd39[m Added blocked IP management dashboard
+[33m1215147[m Fixed README screenshot references
+[33m0c3bce1[m Updated README with project screenshots
+[33m0d51fa8[m Added day 18 documentation and blocking screenshot
+[33mb4cc43b[m Added attacker IP blocking system
+[33m4a40a7f[m Added dashboard report download feature and updated documentation
+[33m919bdf8[m Added attack report generation
+[33me1c765a[m Added IoT device simulation layer
+[33me8e9108[m Added day 14 screenshot and documented the notes
+[33m8ae8316[m Integrated security alerts into dashboard
+[33m1230658[m Added persistent brute force alert system
+[33m30ed97c[m Added day 12 screenshot
+[33m059727b[m Documented day 12 notes
+[33me7b3f8c[m Added automated attack simulator
+[33m5a31622[m Added dashboard threat visualization charts
+[33mfe72b69[m Added honeypot monitoring dashboard
+[33m312804d[m Documented day 9 debugging and input sanitization
+[33mbd5c32f[m Added input sanitization for honeypot data
+[33m6a8db1c[m Added day 9 notes
+[33mc610e61[m Added attack analysis engine with data cleanup
+[33m154f9ec[m Fixed honeypot server stability issues
+[33m037dee5[m Added SQLite documentation notes
+[33m322973c[m Added SQLite attack storage
+[33mac6cd7c[m Updated python ignore rules
+[33mdead639[m Refactored honeypot modules
+[33mf5bb321[m Updated brute force detection notes
+[33madc0a7e[m Added brute force detection
+[33mdefdb57[m Added git ignore rules for logs
+[33mb34733a[m Added attack logging system
+[33m19c3ee0[m Added fake Telnet credential capture
+[33m550e3d7[m Added future enhancements
+[33m333736a[m Created fake IoT listener
+[33mc02c56f[m Updated networking notes
+[33m1e94b3f[m Added day 2 learning notes
+[33m07a1147[m Created honeypot project structure
+[33mcca045a[m Updated project documentation
+[33ma098f07[m Added day 1 learning notes
+[33mdb9d941[m Initial project setup
