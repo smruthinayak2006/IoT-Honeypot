@@ -81,3 +81,10 @@
 2026-06-21 08:52:19,485 | WARNING | Blocked connection from 127.0.0.1
 2026-06-21 08:52:19,488 | WARNING | Blocked connection from 127.0.0.1
 2026-06-21 08:52:19,492 | WARNING | Blocked connection from 127.0.0.1
+2026-06-21 08:57:21,197 | WARNING | Connection attempt from 127.0.0.1
+2026-06-21 08:57:41,521 | CRITICAL | Brute force detected from 127.0.0.1
+2026-06-21 08:57:41,533 | INFO | Attack saved from 127.0.0.1
+2026-06-21 08:57:52,351 | WARNING | Blocked connection from 127.0.0.1
+2026-06-21 09:00:18,748 | WARNING | Connection attempt from 127.0.0.1
+2026-06-21 09:00:26,424 | CRITICAL | Brute force detected from 127.0.0.1
+2026-06-21 09:00:26,437 | INFO | Attack saved from 127.0.0.1
