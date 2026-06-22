@@ -354,10 +354,18 @@ except FileNotFoundError:
 
 
 
+# ------------------------------
+# Threat Intelligence Section
+# ------------------------------
+
+st.header(
+    "🧠 Threat Intelligence"
+)
+
+
 ip_list = attacks[
     "ip_address"
 ].unique()
-
 
 
 selected_ip = st.selectbox(
@@ -366,12 +374,16 @@ selected_ip = st.selectbox(
 )
 
 
-
 if selected_ip:
 
 
     threat = analyze_threat(
         selected_ip
+    )
+
+
+    st.subheader(
+        "Threat Analysis Result"
     )
 
 
