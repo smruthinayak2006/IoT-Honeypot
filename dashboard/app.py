@@ -17,6 +17,142 @@ sys.path.append(
 from threat_intel import analyze_threat
 from report import generate_report
 from database import unblock_ip
+from auth import verify_login
+
+# ==============================
+# DASHBOARD AUTHENTICATION
+# ==============================
+
+
+if "login" not in st.session_state:
+
+
+    st.session_state.login = False
+
+
+
+if not st.session_state.login:
+
+
+    st.title(
+        "🔐 IoT Honeypot Login"
+    )
+
+
+    username = st.text_input(
+        "Username"
+    )
+
+
+    password = st.text_input(
+        "Password",
+        type="password"
+    )
+
+
+    if st.button(
+        "Login"
+    ):
+
+
+        if verify_login(
+            username,
+            password
+        ):
+
+
+            st.session_state.login = True
+
+
+            st.rerun()
+
+
+        else:
+
+
+            st.error(
+                "Invalid Credentials"
+            )
+
+
+    st.stop()
+
+
+
+# ==============================
+# ADMIN SIDEBAR
+# ==============================
+
+
+with st.sidebar:
+
+
+    st.title(
+        "🛡️ Admin Panel"
+    )
+
+
+    st.success(
+        "System Online"
+    )
+
+
+    st.write(
+        "Logged in as:"
+    )
+
+
+    st.code(
+        "admin"
+    )
+
+
+    st.divider()
+
+
+    st.subheader(
+        "System Info"
+    )
+
+
+    st.write(
+        "Service:"
+    )
+
+
+    st.write(
+        "IoT Honeypot"
+    )
+
+
+    st.write(
+        "Mode:"
+    )
+
+
+    st.write(
+        "Monitoring"
+    )
+
+
+    st.divider()
+
+
+    st.subheader(
+        "Actions"
+    )
+
+
+    if st.button(
+        "Logout"
+    ):
+
+
+        st.session_state.login = False
+
+
+        st.rerun()
+
 
 DATABASE = "database/attacks.db"
 
