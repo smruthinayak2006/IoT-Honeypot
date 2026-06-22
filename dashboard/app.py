@@ -14,7 +14,7 @@ sys.path.append(
     "honeypot"
 )
 
-
+from threat_intel import analyze_threat
 from report import generate_report
 from database import unblock_ip
 
@@ -346,4 +346,54 @@ except FileNotFoundError:
 
     st.info(
         "No security logs available"
+    )
+
+    st.header(
+    "Threat Intelligence"
+)
+
+
+
+ip_list = attacks[
+    "ip_address"
+].unique()
+
+
+
+selected_ip = st.selectbox(
+    "Select attacker IP",
+    ip_list
+)
+
+
+
+if selected_ip:
+
+
+    threat = analyze_threat(
+        selected_ip
+    )
+
+
+    st.write(
+        "IP Address:",
+        threat["ip"]
+    )
+
+
+    st.write(
+        "Attempts:",
+        threat["attempts"]
+    )
+
+
+    st.write(
+        "Risk Level:",
+        threat["risk"]
+    )
+
+
+    st.write(
+        "Analysis:",
+        threat["reason"]
     )

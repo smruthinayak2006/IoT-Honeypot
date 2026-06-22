@@ -1,0 +1,21 @@
+IoT HONEYPOT INCIDENT REPORT
+========================================
+
+Generated: 2026-06-21 09:05:27.997985
+
+Total Attacks: 12
+Unique Attackers: 1
+
+Top Usernames:
+admin : 8
+root : 3
+smriti : 1
+
+Top Passwords:
+123456 : 4
+password : 3
+camera123 : 2
+admin123 : 2
+admin : 1
+
+Blocked IPs:
