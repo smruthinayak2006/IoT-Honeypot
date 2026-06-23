@@ -130,3 +130,19 @@ Implemented:
 ✔ Security Alerts  
 ✔ Dashboard Monitoring  
 ✔ Report Generation
+
+
+## Testing
+
+The project includes automated system tests.
+
+Tests validate:
+- Database functionality
+- Threat intelligence engine
+- Authentication system
+
+Run tests:
+python tests/system_tests.py
+
+Expected:
+Tests Passed: 3 / 3
