@@ -1,148 +1,232 @@
-# IoT Honeypot for Attack Detection
+# IoT Honeypot Security System 🛡️
 
-A cybersecurity project that simulates a vulnerable IoT device to detect, capture, analyze, and report attacker activity.
+A cybersecurity project that simulates an IoT device honeypot to capture, analyze, and monitor unauthorized access attempts.
+
+
+## Overview
+
+IoT devices are common targets for attackers due to weak credentials and exposed services.
+
+This project creates a fake IoT Telnet environment that attracts attackers, records their activity, detects suspicious behavior, and provides security insights through a monitoring dashboard.
 
 
 ## Features
 
-- Fake IoT camera simulation
-- Telnet-based honeypot service
-- Attacker credential capture
-- Attack logging system
-- SQLite database storage
+### Honeypot Engine
+
+- Fake IoT Telnet device simulation
+- Credential capture
+- Attack logging
+- Input sanitization
+
+
+### Detection System
+
 - Brute force detection
-- Security alert generation
-- Attack analytics dashboard
-- Graph based visualization
-- CSV security report generation
+- Persistent security alerts
+- Automatic attacker IP blocking
+- Threat intelligence risk scoring
 
 
-## Screenshots
+### Security Dashboard
 
-### IoT Device Simulation
-
-![IoT Device Simulation](screenshots/day15_iot_device_simulation.png)
-
-### Security Monitoring Dashboard
-
-![Dashboard](screenshots/day11_dashboard_overview.png)
-
-
-### Brute Force Alert Detection
-
-![Security Alerts](screenshots/day14_security_alert_dashboard.png)
+- Attack monitoring
+- Data visualization
+- Security alerts
+- Blocked IP management
+- Security event logs
+- Authentication protection
 
 
-### Automated IP Blocking
+### Reporting
 
-![IP Blocking](screenshots/day18_ip_blocking.png)
+- CSV attack reports
+- SOC-style incident reports
+
+
+### Security Improvements
+
+- Environment based configuration
+- Password hashing
+- Secure admin authentication
+- Automated system testing
 
 
 ## Architecture
 
-Attacker
-    |
-    v
 
-Fake IoT Device
-    |
-    v
+```
+                Attacker
 
-Honeypot Engine
-    |
-    +--> Logs
-    |
-    +--> SQLite Database
-    |
-    +--> Detection Engine
-    |
-    +--> Alerts
-            |
-            v
+                    |
 
-Security Dashboard + Reports
+                    v
+
+          Fake IoT Device Service
+
+                    |
+
+                    v
+
+            Honeypot Engine
 
 
-## Technology Stack
+        -----------------------
 
-- Python
-- Socket Programming
-- SQLite
-- Streamlit
-- Pandas
-- Matplotlib
-- Git/GitHub
+        |          |          |
+
+        v          v          v
 
 
-## Project Modules
-
-### Honeypot Server
-
-Simulates an IoT device and captures unauthorized login attempts.
+   Database    Detection    Logs
 
 
-### Detection Engine
+        |          |          |
 
-Analyzes repeated login attempts and identifies brute force activity.
+        -----------------------
 
+                    |
 
-### Database
+                    v
 
-Stores:
+          Security Dashboard
 
-- Attacker IP address
-- Username attempts
-- Password attempts
-- Timestamp
-- Security alerts
+                    |
 
+        -----------------
 
-### Dashboard
+        |               |
 
-Provides:
-
-- Attack statistics
-- Top usernames
-- Top passwords
-- Attacker monitoring
-- Alert visibility
-- Report download
+   Reports       Threat Intel
+```
 
 
-## Purpose
-
-This project demonstrates how honeypots can be used in cybersecurity for:
-
-- Threat intelligence
-- Attack monitoring
-- Credential analysis
-- Security research
+## Project Structure
 
 
-## Status
+```
+IoT-Honeypot
 
-Implemented:
+├── dashboard
+│   └── app.py
 
-✔ IoT Device Simulation  
-✔ Attack Capture  
-✔ Database Storage  
-✔ Brute Force Detection  
-✔ Security Alerts  
-✔ Dashboard Monitoring  
-✔ Report Generation
+├── honeypot
+│   ├── server.py
+│   ├── detector.py
+│   ├── database.py
+│   ├── auth.py
+│   ├── threat_intel.py
+│   └── report.py
+
+├── tests
+
+├── reports
+
+├── screenshots
+
+├── docs
+
+└── README.md
+```
 
 
-## Testing
+## Installation
 
-The project includes automated system tests.
 
-Tests validate:
-- Database functionality
-- Threat intelligence engine
-- Authentication system
+Clone repository:
 
-Run tests:
+
+```bash
+git clone <repository-url>
+
+cd IoT-Honeypot
+```
+
+
+Install dependencies:
+
+
+```bash
+pip install -r requirements.txt
+```
+
+
+## Running Honeypot
+
+
+```bash
+python honeypot/main.py
+```
+
+
+## Running Dashboard
+
+
+```bash
+python -m streamlit run dashboard/app.py
+```
+
+
+## Running Tests
+
+
+```bash
 python tests/system_tests.py
+```
+
 
 Expected:
+
+
+```
 Tests Passed: 3 / 3
+```
+
+
+## Screenshots
+
+### Dashboard Overview
+![Dashboard](screenshots/day11_dashboard_overview.png)
+
+
+### Attack Analysis
+![Analytics](screenshots/day11_ip_chart.png)
+
+
+### Security Logs
+![Logs](screenshots/day22_security_log_dashboard.png)
+
+
+### Threat Intelligence
+![Threat Intelligence](screenshots/day25_threat_intelligence.png)
+
+
+### Secure Authentication
+![Authentication](screenshots/day26_dashboard_authentication.png)
+
+
+
+## Security Concepts Implemented
+
+- Honeypot Technology
+- Network Security Monitoring
+- Brute Force Detection
+- Incident Response
+- Threat Intelligence
+- Secure Authentication
+- Password Hashing
+- Security Logging
+
+
+## Future Enhancements
+
+- Role Based Access Control (RBAC)
+- Email Alert System
+- Docker Deployment
+- Cloud Deployment
+- Machine Learning Based Detection
+
+
+## Disclaimer
+
+This project is created for cybersecurity learning and defensive research purposes only.
