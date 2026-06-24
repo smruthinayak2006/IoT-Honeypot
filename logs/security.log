@@ -88,3 +88,22 @@
 2026-06-21 09:00:18,748 | WARNING | Connection attempt from 127.0.0.1
 2026-06-21 09:00:26,424 | CRITICAL | Brute force detected from 127.0.0.1
 2026-06-21 09:00:26,437 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:26,285 | INFO | IoT Honeypot server started
+2026-06-24 18:30:33,799 | WARNING | Connection attempt from 127.0.0.1
+2026-06-24 18:30:33,812 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:34,316 | WARNING | Connection attempt from 127.0.0.1
+2026-06-24 18:30:34,325 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:34,829 | WARNING | Connection attempt from 127.0.0.1
+2026-06-24 18:30:34,836 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:35,340 | WARNING | Connection attempt from 127.0.0.1
+2026-06-24 18:30:35,350 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:35,854 | WARNING | Connection attempt from 127.0.0.1
+2026-06-24 18:30:35,863 | CRITICAL | Brute force detected from 127.0.0.1
+2026-06-24 18:30:35,879 | INFO | Attack saved from 127.0.0.1
+2026-06-24 18:30:36,383 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,385 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,386 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,388 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,391 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,393 | WARNING | Blocked connection from 127.0.0.1
+2026-06-24 18:30:36,396 | WARNING | Blocked connection from 127.0.0.1

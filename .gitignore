@@ -1,8 +1,15 @@
-logs/*.txt
-__pycache__/
-*.pyc
-database/*.db
-__pycache__/
-*.pyc
-# Environment files
+# Environment
 .env
+
+
+# Python cache
+__pycache__/
+*.pyc
+
+
+# Logs
+*.log
+
+
+# Database
+*.db
